@@ -1,0 +1,28 @@
+﻿<div class="row">
+  <div class="col-xs-12 col-sm-12">
+    「{{ post.category.parent.name }}」の最新 5件<br>
+    {% for latest in post.category.parent.get_latest_post %}
+      ・<a href="{% url 'macuos:detail' latest.pk %}">{{ latest.title }}</a><br>
+    {% endfor %}
+  </div>
+ 
+  <!--
+  <div class="col-xs-12 col-sm-6 m-t-1">
+    「{{ post.category.name }}」の最新5件<br>
+    {% for latest in post.category.get_latest_post %}
+      <a href="{% url 'macuos:detail' latest.pk %}">{{ latest.title }}</a><br>
+    {% endfor %}
+  </div>
+  -->
+  <!--
+   {% for tag in post.tag.all %}
+    <div class="col-xs-12 col-sm-6 m-t-1">
+      「{{ tag.name }}」の最新5件<br>
+      {% for latest in tag.get_latest_post %}
+        <a href="{% url 'macuos:detail' latest.pk %}">{{ latest.title }}</a><br>  
+      {% endfor %}
+    </div>
+  {% endfor %}
+  -->     
+</div>
+<br />

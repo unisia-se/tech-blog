@@ -1,0 +1,43 @@
+ <div class="list-group">
+  <!-- 2018/08/16 M00005 s-hama >>> -->
+  <a href="#" class="list-group-item active text-xs-left">
+    Categories
+  </a>
+
+  <!-- 2018/08/16 M00005 s-hama <<< -->
+  {% for big in big_categories %}
+  <!-- 2018/08/16 M00005 s-hama >>> -->
+  <a class="list-group-item" data-toggle="collapse" href="#c-{{ big.pk }}" aria-expanded="false" aria-controls="c-{{ big.pk }}">
+    {{ big.name }}
+  </a>
+  <!-- 2018/08/16 M00005 s-hama <<< -->
+  <div class="collapse" id="c-{{ big.pk }}">
+    <!-- 2018/08/16 M00005 s-hama >>> -->
+    <a href="{% url 'macuos:category' big.name %}" class="list-group-item">
+      &nbsp;>&nbsp;{{ big.name }}
+    </a>
+    <!-- 2018/08/16 M00005 s-hama <<< -->
+
+    {% for small in big.smallcategory_set.all %}
+    <a href="{% url 'macuos:category' big.name small.name %}" class="list-group-item">
+      &nbsp;>>&nbsp;{{ small.name }}
+    </a>
+    {% endfor %}
+
+  </div>
+  {% endfor %}
+</div>
+
+<!-- 2018/08/16 M00006 s-hama >>> -->
+<br />
+<div class="list-group mt-5">
+  <a href="#" class="list-group-item active text-xs-left">
+    Tags
+  </a>
+  {% for tag in tags  %}
+  <a class="list-group-item" href="{% url 'macuos:tag' tag.name %}">
+      {{ tag.name }}
+  </a>
+  {% endfor %}
+</div>
+<!-- 2018/08/16 M00006 s-hama <<< --> 
