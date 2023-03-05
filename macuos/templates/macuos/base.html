@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+ 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+
+    <!-- Menu -->
+    <meta name="msapplication-config" content="{% static 'macuos/img/fav/browserconfig.xml'  %}" />
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'macuos/img/fav/mstile-144x144.png'  %}">
+    <meta name="theme-color" content="#f5deb3">
+    <link rel="icon" type="image/x-icon" href="{% static 'macuos/img/fav/favicon.png'  %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'macuos/img/fav/apple-touch-icon-180x180.png'  %}">
+    <link rel="mask-icon" href="./safari-icon.svg" color="#555" />
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'macuos/img/fav/android-chrome-192x192.png'  %}">
+    <!--<link rel="manifest" href="https://unisia-se.jp/img/fav/manifest.json">-->
+
+    <!-- Src Disp : highlight Var 9.13.0-->
+    <link rel="stylesheet" href="{% static 'macuos/a11y-dark.css'  %}">
+    <script src="{% static 'macuos/highlight.pack.js'  %}"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- SNS Other -->
+    <meta property="og:url"           content="https://unisia-se.com" />
+    <meta property="og:type"          content="article" />
+    <meta property="og:title"         content="UNISIA-SE Tech Blog" />
+    <meta property="og:description"   content="Engineer Tech Blog" />
+    <meta property="og:image"         content="{% static 'macuos/img/UNISIA-SE2.jpg'  %}" />
+    <meta property="author"         content="UNISIA-SE Tech Blog" />
+    <!-- SNS Buttom-->
+    <link rel="stylesheet" href="{% static 'macuos/sns-icon.css'  %}">
+    <link rel="stylesheet" href="{% static 'macuos/sns-style.css'  %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,900">
+    <link rel="stylesheet" href="{% static 'macuos/icomoon.eot'  %}">
+    <link rel="stylesheet" href="{% static 'macuos/icomoon.svg'  %}">
+    <link rel="stylesheet" href="{% static 'macuos/icomoon.ttf'  %}">
+    <link rel="stylesheet" href="{% static 'macuos/icomoon.woff'  %}">
+
+    <!-- Code Google run prettify -->
+    <!--<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125872348-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-125872348-3');
+    </script>
+
+    <!-- MathJax -->
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'macuos/base.css'  %}">
+
+    <!-- Google AdSense MAIN-->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+       google_ad_client: "ca-pub-4029756773390765",
+       enable_page_level_ads: true
+     });
+    </script>
+    <!-- Google AdSense AMP-->
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+  </head>
+  <body>
+    <!-- Google AdSense AMP-->
+    <amp-auto-ads type="adsense"
+       data-ad-client="ca-pub-4029756773390765">
+    </amp-auto-ads>
+    <!-- facebook -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.2'
+        fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <nav class="navbar navbar-dark bg-primary" style="border-radius:.1rem">
+      <button class="navbar-toggler hidden-sm-up" style = "color: #ffffff; border-color: #ffffff" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+        Menu
+      </button>
+      <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+        <div class="container">
+          <a class="navbar-brand" href="https://unisia-se.com">
+		  <img src="{% static 'macuos/img/unisia_mark_h.png'  %}" width="30" height="30"  style="float:left; margin-right:5px;" alt="UNISIA-SE">
+          </a>
+          <ul class="nav navbar-nav">
+            <li class="nav-item {% block nav_home %}{% endblock %}">
+              <a class="nav-link" href="{% url 'macuos:index' %}">BlogTop<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'macuos:profile' %}">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'macuos:contact' %}">Contact</a>
+            </li>
+	    <!--
+            <li class="nav-item">
+              <a class="nav-link" href="https://unisia-se.jp">HP</a>
+            </li>
+            -->
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'macuos:ppolicy' %}">PrivacyPolicy</a>
+            </li>
+            {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+              </li>
+            {% endif %}
+          </ul>
+          <form action="{% url 'macuos:index' %}" method="GET" class="form-inline pull-xs-right">
+            <input class="form-control" type="text" name="quick" style="width:160px" placeholder="キーワードを入力">
+            <button class="btn btn-outline-success" type="submit">検索</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+ 
+    <div class="jumbotron" style="padding:2rem 1rem;background-color: #3c3c3c;border-radius:.1rem">
+      <div class="container" style="background-size:260px 130px;">
+        <h1 style="color:#f5f5f5;text-align:left;">UNISIA-SE Tech Blog</h2>
+        <p class="lead text-muted" style="text-align:left;">
+            <small>ダメンジニアの気まぐれお勉強日記</small>
+        </p>
+        <a href="https://px.a8.net/svt/ejp?a8mat=3NN1YJ+3JES8I+50+2HN8K1" rel="nofollow">
+         <img border="0" width="728" height="90" alt="" src="https://www28.a8.net/svt/bgt?aid=221105323214&wid=001&eno=01&mid=s00000000018015057000&mc=1"></a>
+        <img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=3NN1YJ+3JES8I+50+2HN8K1" alt="">
+      </div>
+      <img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=3NN1YJ+3JES8I+50+2HN8K1" alt="">
+    </div>
+ 
+    <div class="container">
+      <div class="row">
+	  <div class="col-xs-12 col-sm-9">
+          {% if request.path == '/profile/' %}
+            {% include "macuos/profile.html" %}
+          {% elif request.path == '/contact/' %}
+            {% include "macuos/contact.html" %}
+          {% elif request.path == '/ppolicy/' %}
+            {% include "macuos/ppolicy.html" %}
+          {% else %}
+            {% block content %}{% endblock %}
+          {% endif %}
+        </div>
+	<div class="col-xs-12 col-sm-3">
+          {% include "macuos/side.html" %}
+        </div>
+      </div>
+    </div>
+    <div class="bg-primary" style="margin-top:20px;">
+      <div class="container" style="text-align:center;padding-top:10px;padding-bottom:10px;">
+        <div class="text-white">Copyright UNISIA-SE All Rights Reserved.</div>
+        <div><a style="color:#ffffff;" href="mailto:s-hama@unisia-se.jp" rel="nofollow">s-hama@unisia-se.jp</a></div>
+      </div>
+    </div>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <!--<script src="{% static 'macuos/js/base.js' %}"></script>-->
+  </body>
+</html>
